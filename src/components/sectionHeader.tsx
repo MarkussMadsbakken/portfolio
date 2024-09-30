@@ -55,7 +55,7 @@ export default function SectionHeader(props: SectionHeaderProps) {
                         initial={{
                             y: 20,
                             opacity: 0.2,
-                            color: "#ffffff",
+                            color: "transparent",
                             scale: 0.8
                         }}
 
@@ -64,7 +64,7 @@ export default function SectionHeader(props: SectionHeaderProps) {
                             opacity: 1,
                             transition: {
                                 delay: 0.8,
-                                duration: 0.5,
+                                duration: 0.25,
                                 ease: "easeOut"
                             },
                             color: "#000000",

@@ -12,12 +12,92 @@ import React, { useState } from "react";
 
 export default function Home() {
     return (
-        <div className="w-screen h-fit bg-slate-100">
-            <LanguageSection />
-            <LanguageSection />
-            sdfsf
+        <div className="w-screen h-fit">
+            <div className="flex flex-col w-full h-screen justify-center items-center">
+                <h2 className="h-fit text-3xl pb-2">
+                    Oops, du var her for tidlig!
+                </h2>
+                <div className="h-fit font-light text-sm">
+                    Skal fullføre nettsiden de kommene dagene. De som venter på noe godt...
+                </div>
+            </div>
         </div >
     );
+}
+
+function TechSection() {
+    const [openElement, setOpenElement] = useState<number | null>(null);
+
+    const handleLanguageClick = (index: number) => {
+        if (openElement === index) {
+            setOpenElement(null)
+        } else {
+            setOpenElement(index)
+        }
+    }
+
+    return (
+        <Section background={
+            <div className="w-full h-full bg-gradient-to-b from-slate-200 to-blue-400">
+
+            </div>
+        }>
+            <div className="max-w-full h-screen grid grid-cols-3 grid-flow-row-dense mr-12 ml-12 pb-36 content-center gap-8 " >
+                <motion.div className="pt-20 col-span-3" layout>
+                    <SectionHeader title="Språk" />
+                </motion.div>
+                <LanguageCard src="/JS.svg" lang="Javascript"
+                    onClick={() => handleLanguageClick(0)}
+                    isOpen={openElement === 0}
+                    comment={
+                        <li>
+                            2
+                        </li>
+                    }
+                />
+                <LanguageCard src="/TypeScript.svg" lang="Typescript"
+                    onClick={() => handleLanguageClick(1)}
+                    isOpen={openElement === 1}
+                    comment={
+                        <li>
+                            denne nettsiden :)
+                        </li>
+                    }
+                />
+
+                <LanguageCard src="/Java.svg" lang="Java"
+                    onClick={() => handleLanguageClick(2)}
+                    isOpen={openElement === 2}
+                    last
+                    comment={
+                        <li>
+                            Hovedsakelig brukt i skolesammenheng
+                        </li>
+                    }
+                />
+
+                <LanguageCard src="/CPlusPlus.svg" lang="C++"
+                    onClick={() => handleLanguageClick(3)}
+                    isOpen={openElement === 3}
+                />
+                <LanguageCard src="/Elixir.png" lang="Elixir"
+                    onClick={() => handleLanguageClick(4)}
+                    isOpen={openElement === 4}
+                    comment={
+                        <li>
+                            Nettsider med Phoenix
+                        </li>
+                    }
+                />
+                <LanguageCard src="/Python.svg" lang="Python"
+                    onClick={() => handleLanguageClick(5)}
+                    isOpen={openElement === 5}
+                    last
+                    row={2}
+                />
+            </div>
+        </Section >
+    )
 }
 
 
