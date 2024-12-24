@@ -3,6 +3,7 @@ apt_packages = ["git"]
 
 [phases.build]
 commands = [
+  "mix deps.clean --all",
   "mix deps.get --only prod",
   "mix compile"
 ]
