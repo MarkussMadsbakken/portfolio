@@ -1,0 +1,14 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* This file is for your main application CSS */
+
+@font-face {
+    font-family: "GeistMono";
+    src: local("GeistMono"), url("/fonts/GeistMono-VariableFont_wght.ttf");
+}
+
+body {
+    font-family: "GeistMono";
+}

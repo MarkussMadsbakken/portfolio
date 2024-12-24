@@ -1,0 +1,24 @@
+<div class="min-h-screen min-w-screen flex justify-center items-center ">
+    <div class="w-3/4 h-3/4 text-white bg-black absolute rounded-xl shadow-xl" phx-window-keydown="move">
+        <div class="flex flex-col p-2 w-full h-full" id="page">
+            <div class="w-full flex bg-full justify-between px-20 py-2">
+                <h1 :for={title <- @page_titles} class={if title==@page.title, do: "text-xl text-green-400" , else: "text-xl"}>
+                    <div phx-click={JS.push("change_page", value: %{title: title})} class="cursor-pointer">
+                        |<%= title %>|
+                    </div>
+                </h1>
+            </div>
+            <div class="relative w-full h-full overflow-y-scroll overflow-x-hidden">
+                <div class="absolute bottom-0 px-2 py-4">
+                    <div class="relative" id="page_content" phx-hook="StreamPageContent">
+                        <%= @page.content %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <.live_component module={MyappWeb.LiveImage} src="priv/static/images/j.png" id="github" />
+    </div>
+    <div class="hidden">
+        <%= @force_update %>
+    </div>
+</div>
