@@ -49,6 +49,7 @@ defmodule Myapp.MixProject do
        sparse: "optimized",
        app: false,
        compile: false,
+       override: true,
        depth: 1},
       {:swoosh, "~> 1.5"},
       {:finch, "~> 0.13"},
