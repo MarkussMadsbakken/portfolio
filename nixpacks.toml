@@ -1,0 +1,18 @@
+[phases.setup]
+apt_packages = ["git"]
+
+[phases.build]
+commands = [
+  "mix deps.get --only prod",
+  "mix compile"
+]
+
+[phases.deploy]
+commands = [
+  "mix assets.deploy"
+]
+
+[env]
+MIX_ENV = "prod"
+LANG = "en_US.UTF-8"
+LC_ALL = "en_US.UTF-8"
